@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link href="css.css" rel="stylesheet" type="text/css"/> -->
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+
+<body>
+    <div class="app">
+        單價:{{unitPrice}}<br>
+        數量:{{quantity}}<br>
+        小計:{{subtotalCom}}<br>
+        <br>
+        小計:{{subtotalM()}}<br>
+        <br>
+
+        台幣<input type="text" v-model="twd">
+        日幣<input type="text" v-model="jpy">
+        美金<input type="text" v-model="usd">
+        <hr>
+        <!-- v-bind vs button-->
+        <button v-bind:disabled="isBtndisabled">Click me!</button>
+        <!--v-model vs input元件-->
+        <input v-model.lazy="message" placeholder="input text">
+        <p>Your Input Message is:{{message}}</p>
+        <textarea v-model="moremessage"></textarea>
+        <p>More Message is:{{moremessage}}</p>
+        <input type="radio" id="one" value="1" v-model="picked">
+        <label for="one">One</label>
+        <input type="radio" id="two" value="2" v-model="picked">
+        <label for="two">Two</label>
+        <p>Picked is:{{picked}}</p>
+
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <p>Names Checked:{{checkedNames}}</p>
+        <input type="checkbox" id="checkbox" v-model="isChecked">
+        <label for="checkbox">Checkbox status:{{isChecked}}</label>
+        <br>
+        <select v-model="selected">
+            <option disabled value="">選擇城市</option>
+            <option>台北</option>
+            <option>台中</option>
+            <option>嘉義</option>
+        </select>
+        <p>Selected City:{{selected ||'未選擇'}}</p>
+        <br>
+        <input v-model.number="num1">+<input v-model.number="num2">={{sum}}
+        <br>
+        <input type="text" v-model.trim="msg"  
+        placeholder="請勿超過五個字" :style="msgStyle">
+        <br>
+        <button v-on:click="count">count:{{counter}}</button>
+        <button @click="alert('Alert!')">Click</button>
+
+
+    </div>
+
+
+    <script src="./main.js">
+    </script>
+</body>
+
+</html>
